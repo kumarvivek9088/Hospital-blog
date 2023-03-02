@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Patient</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 style="padding-left:2%">Hello {{request.user}} , you are patient <a href="/signout/" >signout</a></h1>
+        <h2><a href="/blog/">Blogs by our Doctors</a></h2>
+        <p style="padding-left:2%">your first name : - {{request.user.first_name}}</p>
+        <p style="padding-left:2%">your first name : - {{request.user.last_name}}</p>
+        <p style="padding-left:2%">your first name : - {{request.user.email}}</p>
+        <p style="padding-left:2%">your address is: - {{request.user.doctor.line1}}</p>
+        <p style="padding-left:2%">your city is: - {{request.user.doctor.city}}</p>
+        <p style="padding-left:2%">your state is: - {{request.user.doctor.state}}</p>
+        <p style="padding-left:2%">your pincode is: - {{request.user.doctor.pincode}}</p>
+        <img src="/media/{{request.user.doctor.profilepic}}" style="width:20%; padding-left:2%">
+    </div>
+    
+</body>
+</html>

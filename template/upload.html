@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload | Blog</title>
+    <link rel="stylesheet" href="{% static 'upload.css' %}">
+</head>
+<body>
+    <div class='container'>
+        <h1>Upload your Blog</h1>
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <label for="title">Title: -</label>
+            <input type="text" name="title" class="input" required><br>
+            <label for="image">Upload image</label>
+            <input type="file" name="image" accept="Image/*"  required><br>
+            <label>Category: -</label><br>
+            <label>Mental Health</label>
+            <input type="radio" value="Mental Health" name="category" checked>
+            <label> Heart Disease</label>
+            <input type="radio" value="Heart Disease" name="category">
+            <label>Covid 19</label>
+            <input type="radio" value="Covid 19" name="category">
+            <label>Immunization</label>
+            <input type="radio" value="Immunization" name="category"><br>
+            <label for="summary">Summary</label><br>
+            <textarea rows="5" placeholder="add your blog summary" name="summary" required></textarea><br>
+            <label for="content">Content</label><br>
+            <textarea rows="15" placeholder='enter your content here' name="content" required></textarea><br>
+            <label >Save as </label><br>
+            <label for="publish">Draft </label>
+            <input type="radio" value="False" name="publish">
+            <label for="publish">Publish</label>
+            <input type="radio" value="True" name="publish" checked ><br>
+            <button type="submit"  class="btnclass">Upload</button><br>
+            <a href="/home/">Back to Home</a>
+            <a href="/blog/">Go to blog's</a>
+            <a href="/blog/myblog">Go to Myblog's</a>
+        </form>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button"  data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>

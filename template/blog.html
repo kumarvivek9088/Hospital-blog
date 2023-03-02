@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+</head>
+<body>
+    <h1>Welcome to Blogs</h1>
+    <p>Here the blogs by our Doctors</p>
+    {% if request.user.is_doctor %}
+        <a href="/blog/myblog/">go to my blog's</a><br>
+    {% endif %}
+    <label >Filters</label><br>
+    {% if fl == "all" %}
+        All<input type="radio" value="all" name="filter" onclick="location.href='/blog/filter/all'" checked>
+        Mental Health<input type="radio" value="Mental Health" name="filter" onclick="location.href='/blog/filter/Mental Health'">
+        Heart Disease<input type="radio" value="Heart Disease" name="filter" onclick="location.href='/blog/filter/Heart Disease'">
+        Covid 19<input type="radio" value="Covid 19" name="filter" onclick="location.href='/blog/filter/Covid 19'">
+        Immunization<input type="radio" value="Immunization" name="filter" onclick="location.href='/blog/filter/Immunization'">
+    {% endif %}
+    {% if fl == "Covid 19" %}
+        All<input type="radio" value="all" name="filter" onclick="location.href='/blog/filter/all'">
+            Mental Health<input type="radio" value="Mental Health" name="filter" onclick="location.href='/blog/filter/Mental Health'">
+            Heart Disease<input type="radio" value="Heart Disease" name="filter" onclick="location.href='/blog/filter/Heart Disease'">
+            Covid 19<input type="radio" value="Covid 19" name="filter" onclick="location.href='/blog/filter/Covid 19'" checked>
+            Immunization<input type="radio" value="Immunization" name="filter" onclick="location.href='/blog/filter/Immunization'">
+    {% endif %}
+    {% if fl == "Mental Health" %}
+        All<input type="radio" value="all" name="filter" onclick="location.href='/blog/filter/all'">
+            Mental Health<input type="radio" value="Mental Health" name="filter" onclick="location.href='/blog/filter/Mental Health'" checked>
+            Heart Disease<input type="radio" value="Heart Disease" name="filter" onclick="location.href='/blog/filter/Heart Disease'">
+            Covid 19<input type="radio" value="Covid 19" name="filter" onclick="location.href='/blog/filter/Covid 19'">
+            Immunization<input type="radio" value="Immunization" name="filter" onclick="location.href='/blog/filter/Immunization'">
+    {% endif %}
+    {% if fl == "Heart Disease" %}
+        All<input type="radio" value="all" name="filter" onclick="location.href='/blog/filter/all'">
+            Mental Health<input type="radio" value="Mental Health" name="filter" onclick="location.href='/blog/filter/Mental Health'">
+            Heart Disease<input type="radio" value="Heart Disease" name="filter" onclick="location.href='/blog/filter/Heart Disease'" checked>
+            Covid 19<input type="radio" value="Covid 19" name="filter" onclick="location.href='/blog/filter/Covid 19'">
+            Immunization<input type="radio" value="Immunization" name="filter" onclick="location.href='/blog/filter/Immunization'">
+    {% endif %}
+    {% if fl == "Immunization" %}
+        All<input type="radio" value="all" name="filter" onclick="location.href='/blog/filter/all'">
+            Mental Health<input type="radio" value="Mental Health" name="filter" onclick="location.href='/blog/filter/Mental Health'">
+            Heart Disease<input type="radio" value="Heart Disease" name="filter" onclick="location.href='/blog/filter/Heart Disease'">
+            Covid 19<input type="radio" value="Covid 19" name="filter" onclick="location.href='/blog/filter/Covid 19'">
+            Immunization<input type="radio" value="Immunization" name="filter" onclick="location.href='/blog/filter/Immunization'" checked>
+    {% endif %}
+    
+    <table id="tableid">
+        <tr>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Summary</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+        {% for d in data %}
+            <tr>
+                <td>{{d.title}}</td>
+                <td><img src="/media/{{d.image}}" height=100 width=100></td>
+                {% if d.summary|length > 15 %}
+                    <td>{{d.summary|slice:"0:15"|add:"..."}}</td>
+                {% else %}
+                    <td>{{d.summary}}</td>
+                {% endif %}
+                <td>{{d.category}}</td>
+                <td><button onclick="location.href='/blog/viewblog/{{d.bno}}'">View Blog</button></td>
+            </tr>
+            {% endfor %}
+    </table>
+    <script>
+        function myfunc(string){
+           if (string.length()>1){
+                console.log("greater")
+           }
+        }
+    </script>
+</body>
+</html>

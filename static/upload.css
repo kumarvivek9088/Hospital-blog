@@ -1,0 +1,50 @@
+body{
+	display: contents;
+	/* background-image: url("bg.jpg"); */
+	/* display: contents; */
+	/* background-size: cover; */
+  }
+  
+  
+  .container {
+	margin-left: 15%;
+	margin-right: 15%;
+  }
+  
+  textarea{
+	width: 90%;
+	margin-top: 1%;
+	resize: none;
+	border-radius: 5%;
+	border-width: 5px;
+	border-color: rgb(168, 212, 250);
+	
+  }
+  label{
+	font-size: medium;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	margin-right: 1%;
+  }
+  .input{
+	margin-top: 1%;
+	height: 30px;
+	width: 85%;
+	border-radius: 5%;
+	border-width: 5px;
+	border-color: rgb(168, 212, 250);
+  }
+  
+  .btnclass{
+	background-color: aqua;
+	color: black;
+	border: 1px; 
+	border-style:hidden ;
+	border-radius: 10%;
+	padding: 1.5%;
+	margin-right: 2%;
+  }
+  
+  .btnclass:hover{
+	background-color: rgb(164, 181, 181);
+	border-style: dashed;
+  }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form method="post" action="">
+                {% csrf_token %}
+                <h1 id="heading">Sign in</h1>
+                <input type="text" placeholder="username" name="username" required>
+                <input type="password" placeholder="Password"  name="password" required>
+                <!-- <a href="#">Forgot your password?</a> -->
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container" id="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Not an Account</h1>
+                    <p>click Below to signUp</p>
+                    <a href="/signup/patient" hidden id="signuplink"></a>
+                    <button class="ghost" id="signUp">sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'login.js' %}"></script>
+</body>
+</html>

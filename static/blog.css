@@ -1,0 +1,31 @@
+body{
+    background-color: whitesmoke;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+p{
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+td ,th{
+    text-align: left;
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* img{
+    width: 5%;
+    padding-left: 5% ;
+} */
