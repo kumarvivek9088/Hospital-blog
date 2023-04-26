@@ -75,13 +75,22 @@ WSGI_APPLICATION = 'task1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'task2',
+#         'PASSWORD' : 'Vivek@203001',
+#         'USER' : 'root',
+#         'HOST' : 'localhost',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'task2',
-        'PASSWORD' : 'Vivek@203001',
-        'USER' : 'root',
-        'HOST' : 'localhost',
+        'NAME': 'progresswithpyth$task2',
+        'PASSWORD' : '', #password not written here for security reason
+        'USER' : 'progresswithpyth',
+        'HOST' : 'progresswithpython.mysql.pythonanywhere-services.com',
     }
 }
 
